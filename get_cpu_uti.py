@@ -11,7 +11,9 @@ Interval = 3
 
 def write_utilization():
 
-    txt = os.popen("ps aux | grep pox").readlines()[1]
+    txt = os.popen("ps aux | grep pox").readlines()[1]  
+    # ps -ef | grep test | grep -v test | awk '{ print $2 }' | xargs top -b -H -p 
+    # use ps should add -b to switch to 'batch mode'
 
     with open(r"cpu_utilization", 'a+') as f:
         # 考虑启线程写
